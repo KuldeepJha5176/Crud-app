@@ -140,10 +140,10 @@ function App() {
         {/* Modal */}
         {isModalOpen && (
           <div className="fixed inset-0 bg-purple-900 bg-opacity-50 flex items-center justify-center p-4 z-50">
-            <div className="bg-white rounded-xl shadow-xl max-w-md w-full p-6">
-              <div className="flex justify-between items-center mb-4">
-                <h2 className="text-2xl font-bold text-purple-800">
-                  {editingId === null ? 'Add New Contact' : 'Edit Contact'}
+            <div className="bg-white rounded-3xl shadow-xl max-w-md w-full p-8">
+              <div className="flex justify-between items-center mb-6">
+                <h2 className="text-3xl font-bold text-purple-600">
+                  Add New Contact
                 </h2>
                 <button 
                   onClick={() => {
@@ -151,71 +151,75 @@ function App() {
                     setEditingId(null);
                     setFormData({ name: '', email: '', phone: '', address: '' });
                   }}
-                  className="text-purple-500 hover:text-purple-700"
+                  className="bg-black rounded-xl p-2 text-purple-500 hover:text-purple-700"
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                   </svg>
                 </button>
               </div>
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <div>
-                  <label className="block text-sm font-medium text-purple-700 mb-1">Name</label>
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="flex flex-col gap-2">
+                  <label className="text-center text-purple-600 text-lg">Name</label>
                   <input
                     type="text"
                     name="name"
                     value={formData.name}
                     onChange={handleInputChange}
-                    className="w-full px-3 py-2 border border-purple-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+                    className="w-full px-4 py-3 border-2 border-purple-300 rounded-2xl focus:outline-none focus:border-purple-500 text-purple-600 text-lg"
                     required
+                    placeholder="Enter name"
                   />
                 </div>
-                <div>
-                  <label className="block text-sm font-medium text-purple-700 mb-1">Email</label>
+                <div className="flex flex-col gap-2">
+                  <label className="text-center text-purple-600 text-lg">Email</label>
                   <input
                     type="email"
                     name="email"
                     value={formData.email}
                     onChange={handleInputChange}
-                    className="w-full px-3 py-2 border border-purple-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+                    className="w-full px-4 py-3 border-2 border-purple-300 rounded-2xl focus:outline-none focus:border-purple-500 text-purple-600 text-lg"
                     required
+                    placeholder="Enter email"
                   />
                 </div>
-                <div>
-                  <label className="block text-sm font-medium text-purple-700 mb-1">Phone</label>
+                <div className="flex flex-col gap-2">
+                  <label className="text-center text-purple-600 text-lg">Phone</label>
                   <input
                     type="tel"
                     name="phone"
                     value={formData.phone}
                     onChange={handleInputChange}
-                    className="w-full px-3 py-2 border border-purple-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+                    className="w-full px-4 py-3 border-2 border-purple-300 rounded-2xl focus:outline-none focus:border-purple-500 text-purple-600 text-lg"
                     required
+                    placeholder="Enter phone"
                   />
                 </div>
-                <div>
-                  <label className="block text-sm font-medium text-purple-700 mb-1">Address</label>
+                <div className="flex flex-col gap-2">
+                  <label className="text-center text-purple-600 text-lg">Address</label>
                   <input
                     type="text"
                     name="address"
                     value={formData.address}
                     onChange={handleInputChange}
-                    className="w-full px-3 py-2 border border-purple-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+                    className="w-full px-4 py-3 border-2 border-purple-300 rounded-2xl focus:outline-none focus:border-purple-500 text-purple-600 text-lg"
                     required
+                    placeholder="Enter address"
                   />
                 </div>
-                <div className="flex justify-end gap-3 mt-6">
+                <div className="flex justify-end gap-4 mt-8">
                   <button
                     type="button"
                     onClick={() => setIsModalOpen(false)}
-                    className="px-4 py-2 text-purple-700 bg-purple-100 rounded-lg hover:bg-purple-200 transition-colors"
+                    className="px-6 py-3 text-purple-600 font-semibold hover:text-purple-700 transition-colors"
                   >
                     Cancel
                   </button>
                   <button
                     type="submit"
-                    className="px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors"
+                    className="px-6 py-3 bg-black text-white rounded-2xl hover:bg-gray-800 transition-colors font-semibold"
                   >
-                    {editingId === null ? 'Add Contact' : 'Update Contact'}
+                    Add Contact
                   </button>
                 </div>
               </form>
